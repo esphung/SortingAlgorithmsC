@@ -20,7 +20,7 @@ int endTimer() {
 	return CPU_time_2;
 }// end end timer def
 
-int getClockCyclesPerSecond(int start, int end){
+int getClockCycles(int start, int end){
 	int cycles = ((end) - (start));
 	return cycles;
 }
@@ -55,3 +55,9 @@ void fillArray(int a[], int n) {
 	}
 
 }
+
+int addStepCount(int a, int b) {
+	a = a+b;
+	return a;
+}
+

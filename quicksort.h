@@ -16,30 +16,35 @@ int startTimer();
 int endTimer();
 void fillArray(int a[],int n);
 void printArray(int a[],int n);
-int getClockCyclesPerSecond(int start, int end);
+int getClockCycles(int start, int end);
 void swap(int* a, int* b);
+int addStepCount(int a, int b);
 
 /* This function takes last element as pivot, places
    the pivot element at its correct position in sorted
     array, and places all smaller (smaller than pivot)
    to left of pivot and all greater elements to right
    of pivot */
-int partition (int arr[], int low, int high)
-{
+int partition (int arr[], int low, int high, int steps) {
     int pivot = arr[high];    // pivot
     int i = (low - 1);  // Index of smaller element
+    //steps+=1;//swap
  
-    for (int j = low; j <= high- 1; j++)
-    {
+    for (int j = low; j <= high- 1; j++) {
+
+    	//steps+=1;// swap
+
         // If current element is smaller than or
         // equal to pivot
-        if (arr[j] <= pivot)
-        {
+        if (arr[j] <= pivot) {
             i++;    // increment index of smaller element
             swap(&arr[i], &arr[j]);
+            //steps+=1;// swap
         }
     }
     swap(&arr[i + 1], &arr[high]);
+    //steps+=1;// swap
+
     return (i + 1);
 }
  
@@ -49,12 +54,12 @@ int partition (int arr[], int low, int high)
   high  --> Ending index */
 int quickSort(int arr[], int low, int high, int steps) {
 
-    if (low < high)
-    {
+    if (low < high){
         /* pi is partitioning index, arr[p] is now
            at right place */
-        int pi = partition(arr, low, high);
-        steps += 4;
+        int pi = partition(arr, low, high, steps);
+        //steps += 4;
+        steps = addStepCount(steps,4);// swap,swap,swap,swap
  
         // Separately sort elements before
         // partition and after partition
@@ -75,10 +80,10 @@ int myQuickSort(int a[],int n, int steps) {
     int end = endTimer();
 
 
-    int cycles = getClockCyclesPerSecond(start, end);
+    int cycles = getClockCycles(start, end);
 
 	printf("Quick Sort => \n");
-    printArray(a, n);
+    //printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);

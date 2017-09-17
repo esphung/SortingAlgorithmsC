@@ -11,7 +11,7 @@ int startTimer();
 int endTimer();
 void fillArray(int a[],int n);
 void printArray(int a[],int n);
-int getClockCyclesPerSecond(int start, int end);
+int getClockCycles(int start, int end);
 void swap(int* a, int* b);
 
 void merge(int arr[], int l, int m, int r) {
@@ -134,11 +134,11 @@ int myMergeSort(int a[], int n, int steps){
     end = endTimer();
 
 
-    int cycles = getClockCyclesPerSecond(start, end);
+    int cycles = getClockCycles(start, end);
 
     printf("Mergesort => \n");
-    printArray(a, n);
-    printf("Steps: %i\n", steps);
+    //printArray(a, n);
+    //printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);
 
