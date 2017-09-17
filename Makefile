@@ -2,11 +2,11 @@ main.o: utility.o insertionsort.o mergesort.o quicksort.o main.c
 	# building sorting files
 	cc main.c -o main.o
 
-quicksort.o: utility.o
-	cc quicksort.c -o quicksort.o
-
 mergesort.o: utility.o
 	cc mergesort.c -o mergesort.o
+
+quicksort.o: utility.o
+	cc quicksort.h -o quicksort.o
 
 insertionsort.o: utility.o
 	cc insertionsort.h -o insertionsort.o

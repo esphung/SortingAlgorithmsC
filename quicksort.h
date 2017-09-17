@@ -8,12 +8,16 @@ AUTHOR:		eric phung
 
 */
 
-#include "mytimer.h"
-#include "utility.h"
-
+//#include "utility.h"
+#include <stdio.h>
 //Define developer-configurable array length, static (on the stack)
-#define ARR_SIZE 100
-
+//#define ARR_SIZE 100
+int startTimer();
+int endTimer();
+void fillArray(int a[],int n);
+void printArray(int a[],int n);
+int getClockCyclesPerSecond(int start, int end);
+void swap(int* a, int* b);
 
 /* This function takes last element as pivot, places
    the pivot element at its correct position in sorted
@@ -44,8 +48,6 @@ int partition (int arr[], int low, int high)
   low  --> Starting index,
   high  --> Ending index */
 int quickSort(int arr[], int low, int high, int steps) {
-	
-	steps++;
 
     if (low < high)
     {
@@ -64,36 +66,19 @@ int quickSort(int arr[], int low, int high, int steps) {
  
 
 // Driver program to test above functions
-int main() {
+int myQuickSort(int a[],int n) {
 
-   	// create empty array
-	int a[ARR_SIZE];//CHANGED THIS TO CONST VALUE
-
-	int n = (sizeof(a))/(sizeof(int));
-	// random generator seed
-
-	srand(time(NULL));// should only be called once
-
-	// fill array with random ints
-	int k;
-
-	for (k = 0; k < ARR_SIZE; k++) {//CHANGED THIS TO CONST VALUE
-	    a[k] = (rand() % 100);
-	}
-
-	printf("\nUnsorted array: ");
-    printArray(a, n);
-    
     // step counter
 	int steps = 0;
 
 
     steps = quickSort(a, 0, n-1, steps);
 
-    printf("\nSorted array: ");
-    printArray(a, n);
 
+	printf("Quick Sort => \n");
+    printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
+
     return 0;
 }

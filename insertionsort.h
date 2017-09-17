@@ -19,23 +19,14 @@ void fillArray(int a[],int n);
 void printArray(int a[],int n);
 int getClockCyclesPerSecond(int start, int end);
 
-void insertionSort(int n) {
-	
-	
-	int a[n];// create empty array
+void myInsertionSort(int a[],int n) {
+
 	// sorting algorithm variables
 	int i = 1;
 	int j;
 	int steps = 0;
 	int x; // swap variable
 
-	//int n = (sizeof(a))/(sizeof(int));
-	fillArray(a,n);
-
-	
-
-	// print out original array
-	printArray(a,n);
 
     // start time
     int start;
@@ -84,10 +75,11 @@ void insertionSort(int n) {
 
     int cycles = getClockCyclesPerSecond(start, end);
 
-    // print out stats
-    printf("Steps => %i\n", steps);
-    printf("Elements => %i\n", n);
-    printf("Cycles Per Second => %i\n", cycles);
-    printArray(a,n);// array print out
+	printf("Insertion Sort => \n");
+	printArray(a, n);
+	printf("Steps: %i\n", steps);
+    printf("Elements: %i\n", n);
+
+
 
 }

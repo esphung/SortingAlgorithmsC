@@ -4,7 +4,6 @@ AUTHOR:		eric phung
 PURPOSE:	mergesort example in C
 DATE:		2017.09.15
 */
-#include "mytimer.h"
 #include "utility.h"
 
 void merge(int arr[], int l, int m, int r) {
