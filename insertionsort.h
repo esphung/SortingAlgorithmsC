@@ -19,8 +19,9 @@ void fillArray(int a[],int n);
 void printArray(int a[],int n);
 int getClockCycles(int start, int end);
 int addStepCount(int a, int b);
+void WriteData(FILE * fp,char name[],int elements,int steps,int cycles);
 
-void myInsertionSort(int a[],int n, int steps) {
+void myInsertionSort(int a[],int n, int steps,FILE *fp) {
 
 	//steps = addStepCount(steps,1);
     //printf("%i\n", steps);
@@ -81,11 +82,23 @@ void myInsertionSort(int a[],int n, int steps) {
 
     int cycles = getClockCycles(start, end);
 
+    WriteData(fp,"insertionsort",n,steps,cycles);
+
+    if (n <= 1000) {
 	printf("Insertion Sort => \n");
     //printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);
+
+    } else {
+    	printf("InsertionSort => \n");
+    	//printArray(a, n);
+    	printf("Steps: %i\n", steps);
+    	printf("Elements: %i\n", n);
+    	//printf("Cycles: %i\n", cycles);
+
+    }
 
 
 

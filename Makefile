@@ -29,3 +29,4 @@ clean:
 	rm -rf *.out.dSYM
 	rm -rf *.o.dSYM
 	rm -rf *.o
+	rm -rf *.csv

@@ -19,6 +19,8 @@ void printArray(int a[],int n);
 int getClockCycles(int start, int end);
 void swap(int* a, int* b);
 int addStepCount(int a, int b);
+void WriteData(FILE * fp,char name[],int elements,int steps,int cycles);
+
 
 /* This function takes last element as pivot, places
    the pivot element at its correct position in sorted
@@ -71,7 +73,7 @@ int quickSort(int arr[], int low, int high, int steps) {
  
 
 // Driver program to test above functions
-int myQuickSort(int a[],int n, int steps) {
+int myQuickSort(int a[],int n, int steps, FILE *fp) {
 
 	int start = startTimer();
 
@@ -82,11 +84,24 @@ int myQuickSort(int a[],int n, int steps) {
 
     int cycles = getClockCycles(start, end);
 
+    WriteData(fp,"quicksort",n,steps,cycles);
+
+    if (n <= 1000) {
 	printf("Quick Sort => \n");
     //printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);
+
+    } else {
+    	printf("Quick Sort => \n");
+    	//printArray(a, n);
+    	printf("Steps: %i\n", steps);
+    	printf("Elements: %i\n", n);
+    	//printf("Cycles: %i\n", cycles);
+
+    }
+
 
     return 0;
 }

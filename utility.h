@@ -61,3 +61,23 @@ int addStepCount(int a, int b) {
 	return a;
 }
 
+void WriteData(FILE * fp,char name[],int elements,int steps,int cycles) {
+    // name, steps,elements,clock cycle time
+    fprintf(fp, "%s,",name);
+    fprintf(fp, "%i,",elements);
+    fprintf(fp, "%i,",steps);
+    fprintf(fp, "%i\n",cycles);
+
+    //fprintf(fp, "data2\n");
+}
+
+void WriteHeaders(FILE * fp,char name[],char elements[],char steps[],char cycles[]) {
+    // name, steps,elements,clock cycle time
+    fprintf(fp, "%s,",name);
+    fprintf(fp, "%s,",elements);
+    fprintf(fp, "%s,",steps);
+    fprintf(fp, "%s\n",cycles);
+
+    //fprintf(fp, "data2\n");
+}
+

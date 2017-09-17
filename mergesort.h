@@ -13,8 +13,10 @@ void fillArray(int a[],int n);
 void printArray(int a[],int n);
 int getClockCycles(int start, int end);
 void swap(int* a, int* b);
+int addStepCount(int a, int b);
+void WriteData(FILE * fp,char name[],int elements,int steps,int cycles);
 
-void merge(int arr[], int l, int m, int r) {
+int merge(int arr[], int l, int m, int r, int steps) {
 
 	// function variables
 	int i, j, k;
@@ -34,38 +36,40 @@ void merge(int arr[], int l, int m, int r) {
     i = 0; // Initial index of first subarray
     j = 0; // Initial index of second subarray
     k = l; // Initial index of merged subarray
-    while (i < n1 && j < n2)
-    {
-        if (L[i] <= R[j])
-        {
+    while (i < n1 && j < n2) {
+        steps = addStepCount(steps,3);// comparison,comparison,comparison
+        if (L[i] <= R[j]) {
             arr[k] = L[i];
+            steps = addStepCount(steps,1);// swap
             i++;
+            steps = addStepCount(steps,1);// comparison
         }
-        else
-        {
+        else {
             arr[k] = R[j];
             j++;
+            steps = addStepCount(steps,1);// swap
         }
         k++;
     }
 
     /* Copy the remaining elements of L[], if there
        are any */
-    while (i < n1)
-    {
+    while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
+        steps = addStepCount(steps,1);// comparison
     }
  
     /* Copy the remaining elements of R[], if there
        are any */
-    while (j < n2)
-    {
+    while (j < n2) {
         arr[k] = R[j];
         j++;
         k++;
+        steps = addStepCount(steps,1);// comparison
     }
+    return steps;
 
 
 }// end merge def
@@ -73,23 +77,24 @@ void merge(int arr[], int l, int m, int r) {
  
 /* l is for left index and r is right index of the
    sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r)
-{
-    if (l < r)
-    {
+int mergeSort(int arr[], int l, int r, int steps) {
+    if (l < r) {
+
+        steps = addStepCount(steps,1);
         // Same as (l+r)/2, but avoids overflow for
         // large l and h
         int m = l+(r-l)/2;
  
         // Sort first and second halves
-        mergeSort(arr, l, m);
-        mergeSort(arr, m+1, r);
+        steps = mergeSort(arr, l, m, steps);
+        steps = mergeSort(arr, m+1, r, steps);
  
-        merge(arr, l, m, r);
+        steps = merge(arr, l, m, r, steps);
     }
+    return steps;
 }
-
-void MergeSort(int arr[],int l,int r) {
+/*
+void MergeSort(int arr[],int l,int r,int steps) {
 	
 	//merge sort algorithm
 	if (r > l) {
@@ -98,10 +103,10 @@ void MergeSort(int arr[],int l,int r) {
 		int m = ((l+r)/(2));
 
 		// 2. call mergeSort for first half
-		mergeSort(arr,l,m);
+		mergeSort(arr,l,m,steps);
 
 		// 3. Call mergeSort for second half:
-		mergeSort(arr,(m+1),r);
+		mergeSort(arr,(m+1),r,steps);
 
 		//  4. Merge the two halves sorted in step 2 and 3:
 		merge(arr,l,m,r);
@@ -113,11 +118,11 @@ void MergeSort(int arr[],int l,int r) {
 
 	
 }// end mergesort def
-
+*/
 
 
 /* Driver program to test above functions */
-int myMergeSort(int a[], int n, int steps){
+int myMergeSort(int a[], int n, int steps, FILE * fp){
     // start time
     int start;
     start = startTimer();
@@ -127,7 +132,7 @@ int myMergeSort(int a[], int n, int steps){
     //printf("Given array is \n");
     //printArray(arr, n);
  
-    mergeSort(a, 0, n - 1);
+    steps = mergeSort(a, 0, n - 1, steps);
 
 
     int end;
@@ -136,11 +141,23 @@ int myMergeSort(int a[], int n, int steps){
 
     int cycles = getClockCycles(start, end);
 
-    printf("Mergesort => \n");
+    WriteData(fp,"mergesort",n,steps,cycles);
+
+    if (n <= 1000) {
+    printf("Merge Sort => \n");
     //printArray(a, n);
-    //printf("Steps: %i\n", steps);
+    printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);
+
+    } else {
+        printf("Merge Sort => \n");
+        //printArray(a, n);
+        printf("Steps: %i\n", steps);
+        printf("Elements: %i\n", n);
+        //printf("Cycles: %i\n", cycles);
+
+    }
 
     return 0;
 }// end main def
