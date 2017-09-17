@@ -5,6 +5,7 @@ PURPOSE:	mergesort example in C
 DATE:		2017.09.15
 */
 #include "mytimer.h"
+#include "utility.h"
 
 void merge(int arr[], int l, int m, int r) {
 
@@ -107,21 +108,11 @@ void MergeSort(int arr[],int l,int r) {
 }// end mergesort def
 
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
-void printArray(int A[], int size)
-{
-    int i;
-    for (i=0; i < size; i++)
-        printf("%d ", A[i]);
-    printf("\n");
-}
-
 
 /* Driver program to test above functions */
 int main()
 {
-	printf("\n================================\n");
+	//printf("\n================================\n");
 	//start timer
 	startTimer();
 

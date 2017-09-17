@@ -1,52 +1,45 @@
 /*
 
-FILENAME:	insertionsort.c
+FILENAME:	insertionsort.h
 
-PURPOSE:	Insertionsort Example in C language
+PURPOSE:	Insertionsort header file in C language
 
 AUTHOR:		eric phung
 
 */
 
-#include "mytimer.h"
 
 //Define developer-configurable array length, static (on the stack)
-#define ARR_SIZE 1000
+//#define ARR_SIZE 100
+#include <stdio.h>
 
+int startTimer();
+int endTimer();
+void fillArray(int a[],int n);
+void printArray(int a[],int n);
+int getClockCyclesPerSecond(int start, int end);
 
-int main(int argc, char const *argv[])
-
-{
-	// main function
-	// create empty array
-
-	int a[ARR_SIZE];//CHANGED THIS TO CONST VALUE
-
-	int n = (sizeof(a))/(sizeof(int));
-	// random generator seed
-
-	srand(time(NULL));// should only be called once
-
-	// fill array with random ints
-	int k;
-
-	for (k = 0; k < ARR_SIZE; k++) {//CHANGED THIS TO CONST VALUE
-	    a[k] = (rand() % 100);
-	}
+void insertionSort(int n) {
+	
+	
+	int a[n];// create empty array
 	// sorting algorithm variables
 	int i = 1;
 	int j;
 	int steps = 0;
 	int x; // swap variable
 
-	// print out original array
+	//int n = (sizeof(a))/(sizeof(int));
+	fillArray(a,n);
 
-	for(int i = 0; i < n; i++) {
-		printf("%i ", a[i]);
-    }// end print array print out
+	
+
+	// print out original array
+	printArray(a,n);
 
     // start time
-    startTimer();
+    int start;
+    start = startTimer();
 
     // loop thru array until reaches the end
 
@@ -59,7 +52,6 @@ int main(int argc, char const *argv[])
 
 	    j = i;
 
-//	    printf("Insertion sort - Initial value of i= %2d, j = %2d\n\n", i, j);
 	    // compare a[j-1] < a[j]
 
 	    while((j > 0)&&((a[j-1]) > (a[j]))) {
@@ -73,9 +65,6 @@ int main(int argc, char const *argv[])
 	        // count steps for swap, copy, copy
 	        steps += 3;
 	        // recursive i
-/*************************************
- * This is the loop line I changed
- *************************************/
 	        j = j-1;		//Move the inside index left 1
 	        steps++;
 	    }// end while j-1 > j
@@ -90,28 +79,15 @@ int main(int argc, char const *argv[])
     }// end while i is less than length of array
 
     // end timer
-    endTimer();
+    int end;
+    end = endTimer();
 
+    int cycles = getClockCyclesPerSecond(start, end);
 
     // print out stats
-
     printf("Steps => %i\n", steps);
     printf("Elements => %i\n", n);
+    printf("Cycles Per Second => %i\n", cycles);
+    printArray(a,n);// array print out
 
-
-
-	// print out original array
-
-	for(int i = 0; i < n; i++) {
-		printf("%i ", a[i]);
-
-    }// end print array print out
-
-    printf("\n");
-
-
-
-    // end main
-	return 0;
-
-}// end main function def
+}
