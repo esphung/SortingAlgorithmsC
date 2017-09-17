@@ -34,24 +34,7 @@ int main() {
     else
         printf ("You failed to enter a number\n");*/
 
-/*    int n = 100;// size of array
 
-    int a[n];// create empty arrays
-
-    fillArray(a,n);
-
-    // print out original array
-    //printf("\nUnsorted array: ");
-    //printArray(a,n);
-
-    int steps = 0;
-    
-
-    myInsertionSort(a,n,steps);
-    myQuickSort(a,n,steps);
-    myMergeSort(a,n,steps);
-    printf("\n");
-*/
     int num[4] = {100,1000,5000,10000};// different element counts
     int steps = 0;
 
@@ -70,7 +53,7 @@ int main() {
         myMergeSort(b,n,steps,fp);
 
 
-    }
+    }// end for
 
 
 
