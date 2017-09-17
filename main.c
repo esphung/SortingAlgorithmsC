@@ -11,6 +11,7 @@ AUTHOR:		eric phung
 #include "utility.h"
 #include "insertionsort.h"
 #include "quicksort.h"
+#include "mergesort.h"
 
 
 //Define developer-configurable array length, static (on the stack)
@@ -28,9 +29,11 @@ int main(int argc, char const *argv[]) {
     printf("\nUnsorted array: ");
     printArray(a,n);
 
+    int steps = 0;
 
-    myInsertionSort(a,n);
-    myQuickSort(a,n);
+    myInsertionSort(a,n,steps);
+    myQuickSort(a,n,steps);
+    myMergeSort(a,n,steps);
 
     printf("HEllo Main\n");
     return 0;

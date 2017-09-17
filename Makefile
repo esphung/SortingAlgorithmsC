@@ -3,7 +3,7 @@ main.o: utility.o insertionsort.o mergesort.o quicksort.o main.c
 	cc main.c -o main.o
 
 mergesort.o: utility.o
-	cc mergesort.c -o mergesort.o
+	cc mergesort.h -o mergesort.o
 
 quicksort.o: utility.o
 	cc quicksort.h -o quicksort.o

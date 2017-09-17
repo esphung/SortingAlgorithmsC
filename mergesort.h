@@ -4,7 +4,15 @@ AUTHOR:		eric phung
 PURPOSE:	mergesort example in C
 DATE:		2017.09.15
 */
-#include "utility.h"
+#include <stdio.h>
+//Define developer-configurable array length, static (on the stack)
+//#define ARR_SIZE 100
+int startTimer();
+int endTimer();
+void fillArray(int a[],int n);
+void printArray(int a[],int n);
+int getClockCyclesPerSecond(int start, int end);
+void swap(int* a, int* b);
 
 void merge(int arr[], int l, int m, int r) {
 
@@ -109,35 +117,30 @@ void MergeSort(int arr[],int l,int r) {
 
 
 /* Driver program to test above functions */
-int main()
-{
-	//printf("\n================================\n");
-	//start timer
-	startTimer();
+int myMergeSort(int a[], int n, int steps){
+    // start time
+    int start;
+    start = startTimer();
 
-	// create empty array
-	int arr[100];
-
-	// random generator seed
-	srand(time(NULL));   // should only be called once
-
-	// fill array with random ints
-	int k;
-	for (k = 0; k < (sizeof(arr))/(sizeof(int)); k++) {
-	    arr[k] = (rand() % 10);
-	}
-    
-    int arr_size = sizeof(arr)/sizeof(arr[0]);
+    //int arr_size = sizeof(arr)/sizeof(arr[0]);
  
-    printf("Given array is \n");
-    printArray(arr, arr_size);
+    //printf("Given array is \n");
+    //printArray(arr, n);
  
-    mergeSort(arr, 0, arr_size - 1);
- 
-    printf("\nSorted array is \n");
-    printArray(arr, arr_size);
+    mergeSort(a, 0, n - 1);
 
-    // end timer
-	endTimer();
+
+    int end;
+    end = endTimer();
+
+
+    int cycles = getClockCyclesPerSecond(start, end);
+
+    printf("Mergesort => \n");
+    printArray(a, n);
+    printf("Steps: %i\n", steps);
+    printf("Elements: %i\n", n);
+    printf("Cycles: %i\n", cycles);
+
     return 0;
 }// end main def

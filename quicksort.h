@@ -66,19 +66,22 @@ int quickSort(int arr[], int low, int high, int steps) {
  
 
 // Driver program to test above functions
-int myQuickSort(int a[],int n) {
+int myQuickSort(int a[],int n, int steps) {
 
-    // step counter
-	int steps = 0;
-
+	int start = startTimer();
 
     steps = quickSort(a, 0, n-1, steps);
 
+    int end = endTimer();
+
+
+    int cycles = getClockCyclesPerSecond(start, end);
 
 	printf("Quick Sort => \n");
     printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
+    printf("Cycles: %i\n", cycles);
 
     return 0;
 }
