@@ -39,7 +39,7 @@ int main() {
     int steps = 0;
 
     for (int i = 0; i < ((sizeof(num)/(sizeof(int)))); ++i) {
-        // loop thru array sizes
+        // loop thru array sizesqq
         int n = num[i];// size of array
         int b[n];// create empty arrays
         

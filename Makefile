@@ -1,3 +1,5 @@
+all: main.o mergesort.o quicksort.o insertionsort.o utility.o
+
 main.o: utility.o insertionsort.o mergesort.o quicksort.o main.c
 	# building sorting files
 	cc main.c -o main.o
