@@ -86,7 +86,7 @@ void myInsertionSort(int a[],int n, int steps,FILE *fp) {
 
     if (n <= 1000) {
 	printf("Insertion Sort => \n");
-    //printArray(a, n);
+    printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);

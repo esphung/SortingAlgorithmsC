@@ -31,8 +31,9 @@ int partition (int arr[], int low, int high, int steps) {
     int pivot = arr[high];    // pivot
     int i = (low - 1);  // Index of smaller element
     //steps+=1;//swap
+    int j;
  
-    for (int j = low; j <= high- 1; j++) {
+    for (j = low; j <= high- 1; j++) {
 
     	//steps+=1;// swap
 
@@ -88,7 +89,7 @@ int myQuickSort(int a[],int n, int steps, FILE *fp) {
 
     if (n <= 1000) {
 	printf("Quick Sort => \n");
-    //printArray(a, n);
+    printArray(a, n);
     printf("Steps: %i\n", steps);
     printf("Elements: %i\n", n);
     printf("Cycles: %i\n", cycles);

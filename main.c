@@ -38,7 +38,10 @@ int main() {
     int num[4] = {100,1000,5000,10000};// different element counts
     int steps = 0;
 
-    for (int i = 0; i < ((sizeof(num)/(sizeof(int)))); ++i) {
+    int i;
+
+    for (i = 0; i < ((sizeof(num)/(sizeof(int)))); ++i) {
+        
         // loop thru array sizesqq
         int n = num[i];// size of array
         int b[n];// create empty arrays
@@ -46,7 +49,6 @@ int main() {
         fillArray(b,n);
 
         steps = 0;
-        
 
         myInsertionSort(b,n,steps,fp);
         myQuickSort(b,n,steps,fp);

@@ -32,3 +32,4 @@ clean:
 	rm -rf *.o.dSYM
 	rm -rf *.o
 	rm -rf *.csv
+	rm -rf main
