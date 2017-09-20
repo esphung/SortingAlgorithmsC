@@ -1,8 +1,25 @@
-#Sorting Algorithms in C
+#Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
 
-Steps To Run Program:
---------
+P Sorting project for cs362 Data Structures course at IUPUIs
 
-	make clean
-	make all
-	make run
+### Installing
+
+delete existing data (if any)
+
+```
+make clean
+```
+
+build the program from source files
+
+```
+make all
+```
+
+run program
+
+```
+make run
+```
+
+
