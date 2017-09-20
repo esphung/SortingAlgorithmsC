@@ -1,4 +1,4 @@
-#Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
+##Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
 
 P Sorting project for cs362 Data Structures course at IUPUIs
 
@@ -23,3 +23,11 @@ make run
 ```
 
 
+## Versioning
+
+We use [Github](https://github.com/esphung/SortingAlgorithmsC) for versioning.
+
+
+```
+author:		eric phung
+```
