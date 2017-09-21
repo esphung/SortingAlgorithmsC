@@ -1,4 +1,5 @@
-##Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
+Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
+========
 
 P Sorting project for cs362 Data Structures course at IUPUIs
 
