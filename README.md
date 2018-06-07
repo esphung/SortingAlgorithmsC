@@ -1,11 +1,11 @@
 Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
 ========
+(copy this if you want an A)
 
-P Sorting project for cs362 Data Structures course at IUPUIs
+How to build it
+----
 
-### Installing
-
-delete existing data (if any)
+* delete existing previous result data
 
 ```
 make clean
