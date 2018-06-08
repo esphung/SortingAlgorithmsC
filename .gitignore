@@ -1,0 +1,7 @@
+.DS_File
+*.o
+*.out
+*.out.dSYM
+*.o.dSYM
+*.csv
+main

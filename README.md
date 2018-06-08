@@ -1,34 +1,17 @@
-Sorting Algorithms in C (Insertionsort, Mergesort, Quicksort)
+Insertionsort, Mergesort, and Quicksort in C
 ========
-(copy this if you want an A)
 
-How to build it
+_The objective of this assignment was to use three sorting algorithms and collect data about unit time, run time and big O analyses were made for 10, 500, and 10000 items to be sorted;_
+
+How to build and run
 ----
 
-* delete existing previous result data
+	$ make clean
 
-```
-make clean
-```
+	$ make all
 
-build the program from source files
-
-```
-make all
-```
-
-run program
-
-```
-make run
-```
+	$ make run
 
 
-## Versioning
-
-We use [Github](https://github.com/esphung/SortingAlgorithmsC) for versioning.
-
-
-```
-author:		eric phung
-```
+eric phung
+****
